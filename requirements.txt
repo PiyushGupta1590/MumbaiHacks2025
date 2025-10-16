@@ -1,0 +1,8 @@
+crewai
+gradio
+pandas
+plotly
+pyyaml
+python-dotenv
+openpyxl
+sendgrid
