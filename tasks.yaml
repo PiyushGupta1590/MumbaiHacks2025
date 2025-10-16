@@ -1,0 +1,110 @@
+tasks:
+  cash_flow_analysis_task:
+    description: >
+      **Objective:** Analyze the company's cash flow and transaction data from '{dataset}'.
+
+      **Step-by-Step Instructions:**
+
+      1.  **Data Loading:**
+          - Load and review the financial transaction data from: '{dataset}'.
+          - Verify data integrity and identify the structure of transactions.
+
+      2.  **Cash Flow Calculations:**
+          - Calculate Total Cash Inflow (sum of all Cash Inflow values where Party Type is 'Client')
+          - Calculate Total Cash Outflow (sum of all Cash Outflow values where Party Type is 'Supplier')
+          - Calculate Net Cash Flow (Total Inflow + Total Outflow, noting outflows are negative)
+          - Calculate Current Cash Balance from the Net Cash Flow column
+          - Identify the current opening balance (Opening Balance column)
+
+      3.  **Transaction Analysis:**
+          - Count transactions by Party Type (Client vs Supplier)
+          - Analyze transaction distribution by Category (Operational, Capital, Misc)
+          - Identify top 5 clients by total Cash Inflow
+          - Identify top 5 suppliers by total Cash Outflow
+
+      4.  **Payment Status Review:**
+          - Count and analyze transactions by Payment Status (Paid, Pending, Overdue)
+          - Calculate total amounts for each payment status
+          - Identify all overdue invoices with client names and amounts
+
+      5.  **Output Requirements:**
+          - Provide detailed cash flow summary with all calculated metrics
+          - List all overdue transactions with Party Name, Amount, Date, and Notes
+          - Highlight any concerning patterns in cash flow
+
+    expected_output: >
+      A comprehensive cash flow analysis report including: Total Cash Inflow, Total Cash Outflow,
+      Net Cash Flow, Current Balance, transaction breakdowns by type and category, payment status
+      summary, list of overdue invoices, and top clients/suppliers.
+
+  risk_assessment_task:
+    description: >
+      **Objective:** Based on the cash flow analysis from the previous task, assess financial risks
+      and identify areas requiring immediate attention.
+
+      **Step-by-Step Instructions:**
+
+      1.  **Review Cash Flow Data:**
+          - Analyze the Net Cash Flow and current balance trends
+          - Identify if the business has positive or negative cash flow
+          - Review the ratio of pending to paid transactions
+
+      2.  **Risk Identification:**
+          - Flag any overdue invoices as high priority collection items
+          - Identify high-priority pending transactions (where Priority is 'High')
+          - Assess if cash outflows exceed cash inflows
+          - Calculate days of cash runway based on current balance and average daily outflow
+
+      3.  **Financial Health Assessment:**
+          - Evaluate the distribution of operational vs capital transactions
+          - Assess supplier payment obligations vs client receivables
+          - Identify any concentration risk (too much revenue from few clients)
+
+      4.  **Output Requirements:**
+          - Provide a risk rating (Low, Medium, High) for overall financial health
+          - List specific risk factors with severity levels
+          - Identify urgent action items (overdue invoices, high-priority pending payments)
+          - Save the report in a 'health_report.md'
+
+    expected_output: >
+      A detailed risk assessment report file 'health_report.md' including: overall financial health rating, specific risk
+      factors identified, list of urgent action items with priorities, and analysis of cash flow
+      sustainability.
+
+  communications_task:
+    description: >
+      **Objective:** Draft professional communications for overdue invoices and compile a final
+      comprehensive report for business owner.
+
+      **Step-by-Step Instructions:**
+
+      1.  **Overdue Invoice Communications:**
+          - For each overdue transaction identified, draft a professional payment reminder
+          - Include: Client name, invoice amount, original date, current overdue status
+          - Use a firm but professional tone
+          - Save all communications to 'overdue_communications.txt'
+
+      2.  **High-Priority Follow-ups:**
+          - Identify pending high-priority transactions that need attention
+          - Draft brief action notes for internal team follow-up
+
+      3.  **Executive Report Compilation:**
+          - Synthesize findings from both previous tasks into a comprehensive markdown report
+          - The report MUST include these sections:
+            * **## Executive Summary:** High-level overview of financial health and key findings
+            * **## Cash Flow Overview:** Total Inflow, Outflow, Net Cash Flow, Current Balance
+            * **## Transaction Analysis:** Breakdown by type, category, and payment status
+            * **## Risk Assessment:** Key risks identified and their severity
+            * **## Overdue Accounts:** List of overdue invoices requiring immediate attention
+            * **## Top Clients & Suppliers:** Top 5 in each category by transaction volume
+            * **## Strategic Recommendations:** At least 3 actionable recommendations
+
+      4.  **File Generation:**
+          - Save the overdue invoice list to 'overdue_report.xlsx'
+          - Save payment reminder communications to 'overdue_communications.txt'
+          - Generate final executive report as 'financial_health_report.md'
+
+    expected_output: >
+      A comprehensive executive report in markdown format with all required sections, plus
+      confirmation of successful creation of 'overdue_report.xlsx' and 'overdue_communications.txt'
+      files containing payment reminders and overdue invoice details.
