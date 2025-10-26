@@ -1,6 +1,6 @@
 # 📊 SME Financial Health Monitor (Project Neon)
 
-**Tagline:** _Financial Intelligence, Accelerated._
+**Tagline:** _Your AI Crew for financial Clarity._
 
 An **AI-powered dashboard** transforming financial spreadsheets into actionable intelligence for SMEs using **CrewAI** and **NVIDIA NIM**.
 
